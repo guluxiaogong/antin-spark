@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.zoe:ojdbc6:20160518">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/zoe/ojdbc6/20160518/ojdbc6-20160518.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/com/zoe/ojdbc6/20160518/ojdbc6-20160518-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/zoe/ojdbc6/20160518/ojdbc6-20160518-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
