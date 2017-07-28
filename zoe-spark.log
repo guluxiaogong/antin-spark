@@ -1,0 +1,121 @@
+INFO main org.apache.zookeeper.ZooKeeper - Client environment:java.library.path=D:\Program Files\Java\jdk1.8.0_51\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;D:\Program Files\Java\jdk1.8.0_51\bin;E:\Mysql\soft\MyCAT\mycat\bin;C:\ProgramData\Oracle\Java\javapath;D:\MySoftware\ant\apache-ant-1.9.6\bin;D:\Program Files\Java\jdk1.7.0_45\bin;E:\Ambari\hadoop-home\hadoop2.7\hdp\bin;D:\MySoftware\instantclient_plsql\instantclient-basic-nt-12.1.0.2.0\instantclient_12_1\NETWORD\ADMIN;SIMPLIFIED CHINESE_CHINA.ZHS16GBK\;D:\MySoftware\maven\apache-maven-3.0.5\bin;D:\Program Files\CollabNet\Subversion Client;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;D:\Program Files\TortoiseSVN\bin;D:\Program Files\SlikSvn\bin;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;D:\Program Files\VisualSVN Server\bin;D:\Program Files (x86)\scala\bin;D:\ProgramData\Anaconda2;D:\Program Files (x86)\scala\bin;.
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:java.io.tmpdir=C:\Users\ADMINI~1\AppData\Local\Temp\
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:java.compiler=<NA>
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:os.name=Windows 7
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:os.arch=amd64
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:os.version=6.1
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:user.name=Administrator
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:user.home=C:\Users\Administrator
+ INFO main org.apache.zookeeper.ZooKeeper - Client environment:user.dir=F:\CommonDevelop\hadoop\project\github\antin-spark
+ INFO main org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.14.85:2181,192.168.14.83:2181,192.168.14.84:2181 sessionTimeout=90000 watcher=hconnection-0x52285a5f0x0, quorum=192.168.14.85:2181,192.168.14.83:2181,192.168.14.84:2181, baseZNode=/hbase-unsecure
+ INFO main-SendThread(192.168.14.84:2181) org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.14.84/192.168.14.84:2181. Will not attempt to authenticate using SASL (unknown error)
+ INFO main-SendThread(192.168.14.84:2181) org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.14.84/192.168.14.84:2181, initiating session
+ INFO main-SendThread(192.168.14.84:2181) org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.14.84/192.168.14.84:2181, sessionid = 0x25d8429c409004b, negotiated timeout = 60000
+ INFO main org.apache.hadoop.hbase.util.RegionSizeCalculator - Calculating region sizes for table "hpor:sehr_xman".
+ INFO main org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation - Closing master protocol: MasterService
+ INFO main org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation - Closing zookeeper sessionid=0x25d8429c409004b
+ INFO main org.apache.zookeeper.ZooKeeper - Session: 0x25d8429c409004b closed
+ INFO main-EventThread org.apache.zookeeper.ClientCnxn - EventThread shut down
+ INFO Executor task launch worker for task 0 org.apache.hadoop.hbase.zookeeper.RecoverableZooKeeper - Process identifier=hconnection-0x41ea5d5e connecting to ZooKeeper ensemble=192.168.14.85:2181,192.168.14.83:2181,192.168.14.84:2181
+ INFO Executor task launch worker for task 0 org.apache.zookeeper.ZooKeeper - Initiating client connection, connectString=192.168.14.85:2181,192.168.14.83:2181,192.168.14.84:2181 sessionTimeout=90000 watcher=hconnection-0x41ea5d5e0x0, quorum=192.168.14.85:2181,192.168.14.83:2181,192.168.14.84:2181, baseZNode=/hbase-unsecure
+ INFO Executor task launch worker for task 0-SendThread(192.168.14.83:2181) org.apache.zookeeper.ClientCnxn - Opening socket connection to server 192.168.14.83/192.168.14.83:2181. Will not attempt to authenticate using SASL (unknown error)
+ INFO Executor task launch worker for task 0-SendThread(192.168.14.83:2181) org.apache.zookeeper.ClientCnxn - Socket connection established to 192.168.14.83/192.168.14.83:2181, initiating session
+ INFO Executor task launch worker for task 0-SendThread(192.168.14.83:2181) org.apache.zookeeper.ClientCnxn - Session establishment complete on server 192.168.14.83/192.168.14.83:2181, sessionid = 0x15d8429c545001a, negotiated timeout = 60000
+ INFO Executor task launch worker for task 0 org.apache.hadoop.hbase.mapreduce.TableInputFormatBase - Input split length: 186 M bytes.
+ INFO Executor task launch worker for task 0 org.elasticsearch.hadoop.util.Version - Elasticsearch Hadoop v5.4.3 [699b4061f8]
+ INFO Executor task launch worker for task 0 org.elasticsearch.spark.rdd.EsRDDWriter - Writing to [hpor:name_xmanid_index/person]
+ WARN driver-heartbeater org.apache.spark.rpc.netty.NettyRpcEndpointRef - Error sending message [message = Heartbeat(driver,[Lscala.Tuple2;@4b1851b5,BlockManagerId(driver, 10.0.1.32, 56944, None))] in 1 attempts
+ org.apache.spark.rpc.RpcTimeoutException: Futures timed out after [10 seconds]. This timeout is controlled by spark.executor.heartbeatInterval
+	at org.apache.spark.rpc.RpcTimeout.org$apache$spark$rpc$RpcTimeout$$createRpcTimeoutException(RpcTimeout.scala:48)
+	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:63)
+	at org.apache.spark.rpc.RpcTimeout$$anonfun$addMessageIfTimeout$1.applyOrElse(RpcTimeout.scala:59)
+	at scala.PartialFunction$OrElse.apply(PartialFunction.scala:167)
+	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:83)
+	at org.apache.spark.rpc.RpcEndpointRef.askWithRetry(RpcEndpointRef.scala:102)
+	at org.apache.spark.executor.Executor.org$apache$spark$executor$Executor$$reportHeartBeat(Executor.scala:689)
+	at org.apache.spark.executor.Executor$$anon$1$$anonfun$run$1.apply$mcV$sp(Executor.scala:718)
+	at org.apache.spark.executor.Executor$$anon$1$$anonfun$run$1.apply(Executor.scala:718)
+	at org.apache.spark.executor.Executor$$anon$1$$anonfun$run$1.apply(Executor.scala:718)
+	at org.apache.spark.util.Utils$.logUncaughtExceptions(Utils.scala:1951)
+	at org.apache.spark.executor.Executor$$anon$1.run(Executor.scala:718)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: java.util.concurrent.TimeoutException: Futures timed out after [10 seconds]
+	at scala.concurrent.impl.Promise$DefaultPromise.ready(Promise.scala:219)
+	at scala.concurrent.impl.Promise$DefaultPromise.result(Promise.scala:223)
+	at scala.concurrent.Await$$anonfun$result$1.apply(package.scala:190)
+	at scala.concurrent.BlockContext$DefaultBlockContext$.blockOn(BlockContext.scala:53)
+	at scala.concurrent.Await$.result(package.scala:190)
+	at org.apache.spark.rpc.RpcTimeout.awaitResult(RpcTimeout.scala:81)
+	... 14 more
+WARN heartbeat-receiver-event-loop-thread org.apache.spark.rpc.netty.NettyRpcEnv - Ignored message: HeartbeatResponse(false)
+ INFO Executor task launch worker for task 0 org.apache.hadoop.hbase.client.ConnectionManager$HConnectionImplementation - Closing zookeeper sessionid=0x15d8429c545001a
+ INFO Executor task launch worker for task 0 org.apache.zookeeper.ZooKeeper - Session: 0x15d8429c545001a closed
+ INFO Executor task launch worker for task 0-EventThread org.apache.zookeeper.ClientCnxn - EventThread shut down
+ ERROR Executor task launch worker for task 0 org.apache.spark.executor.Executor - Exception in task 0.0 in stage 0.0 (TID 0)
+ org.elasticsearch.hadoop.rest.EsHadoopInvalidRequest: Found unrecoverable error [192.168.14.91:9200] returned Bad Request(400) - object mapping for [Z34] tried to parse field [Z34] as object, but found a concrete value; Bailing out..
+	at org.elasticsearch.hadoop.rest.RestClient.processBulkResponse(RestClient.java:251)
+	at org.elasticsearch.hadoop.rest.RestClient.bulk(RestClient.java:203)
+	at org.elasticsearch.hadoop.rest.RestRepository.tryFlush(RestRepository.java:220)
+	at org.elasticsearch.hadoop.rest.RestRepository.flush(RestRepository.java:242)
+	at org.elasticsearch.hadoop.rest.RestRepository.doWriteToIndex(RestRepository.java:196)
+	at org.elasticsearch.hadoop.rest.RestRepository.writeToIndex(RestRepository.java:159)
+	at org.elasticsearch.spark.rdd.EsRDDWriter.write(EsRDDWriter.scala:67)
+	at org.elasticsearch.spark.rdd.EsSpark$$anonfun$doSaveToEs$1.apply(EsSpark.scala:102)
+	at org.elasticsearch.spark.rdd.EsSpark$$anonfun$doSaveToEs$1.apply(EsSpark.scala:102)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:87)
+	at org.apache.spark.scheduler.Task.run(Task.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:322)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+WARN task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Lost task 0.0 in stage 0.0 (TID 0, localhost, executor driver): org.elasticsearch.hadoop.rest.EsHadoopInvalidRequest: Found unrecoverable error [192.168.14.91:9200] returned Bad Request(400) - object mapping for [Z34] tried to parse field [Z34] as object, but found a concrete value; Bailing out..
+	at org.elasticsearch.hadoop.rest.RestClient.processBulkResponse(RestClient.java:251)
+	at org.elasticsearch.hadoop.rest.RestClient.bulk(RestClient.java:203)
+	at org.elasticsearch.hadoop.rest.RestRepository.tryFlush(RestRepository.java:220)
+	at org.elasticsearch.hadoop.rest.RestRepository.flush(RestRepository.java:242)
+	at org.elasticsearch.hadoop.rest.RestRepository.doWriteToIndex(RestRepository.java:196)
+	at org.elasticsearch.hadoop.rest.RestRepository.writeToIndex(RestRepository.java:159)
+	at org.elasticsearch.spark.rdd.EsRDDWriter.write(EsRDDWriter.scala:67)
+	at org.elasticsearch.spark.rdd.EsSpark$$anonfun$doSaveToEs$1.apply(EsSpark.scala:102)
+	at org.elasticsearch.spark.rdd.EsSpark$$anonfun$doSaveToEs$1.apply(EsSpark.scala:102)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:87)
+	at org.apache.spark.scheduler.Task.run(Task.scala:99)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:322)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+ ERROR task-result-getter-0 org.apache.spark.scheduler.TaskSetManager - Task 0 in stage 0.0 failed 1 times; aborting job
+ INFO Thread-2 org.spark_project.jetty.server.ServerConnector - Stopped Spark@36061cf3{HTTP/1.1}{0.0.0.0:4040}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7a7cc52c{/stages/stage/kill,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@69228e85{/jobs/job/kill,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4e1ce44{/api,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@6778aea6{/,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3e15bb06{/static,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@161f6623{/executors/threadDump/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@150ede8b{/executors/threadDump,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4d8286c4{/executors/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@790a251b{/executors,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3e17a0a1{/environment/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@27b45ea{/environment,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@4b3fe06e{/storage/rdd/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@199bc830{/storage/rdd,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7139bd31{/storage/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@7487b142{/storage,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@81b5db0{/stages/pool/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@58860997{/stages/pool,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@ef1695a{/stages/stage/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@238bfd6c{/stages/stage,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@319c3a25{/stages/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@68e7c8c3{/stages,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@77eb5790{/jobs/job/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@3724b43e{/jobs/job,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@260ff5b7{/jobs/json,null,UNAVAILABLE,@Spark}
+ INFO Thread-2 org.spark_project.jetty.server.handler.ContextHandler - Stopped o.s.j.s.ServletContextHandler@2c8662ac{/jobs,null,UNAVAILABLE,@Spark}
+ 
