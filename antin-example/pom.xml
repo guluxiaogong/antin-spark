@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>antin-spark</artifactId>
+        <artifactId>antin-spark-parent</artifactId>
         <groupId>com.antin</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -12,41 +12,11 @@
     <artifactId>antin-example</artifactId>
 
     <dependencies>
-<!--        <dependency>
-            <groupId>com.zoe</groupId>
-            <artifactId>spark-examples_2.11</artifactId>
-            <version>2.1.1</version>
-        </dependency>-->
-        <dependency>
-            <groupId>com.zoe</groupId>
-            <artifactId>scopt_2.11</artifactId>
-            <version>3.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.scalanlp</groupId>
-            <artifactId>breeze_2.11</artifactId>
-            <version>0.12</version>
-        </dependency>
-        <dependency>
-            <groupId>org.scalanlp</groupId>
-            <artifactId>breeze-macros_2.11</artifactId>
-            <version>0.12</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-graphx_2.11</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-mllib_2.11</artifactId>
-            <version>2.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.spark</groupId>
-            <artifactId>spark-mllib-local_2.11</artifactId>
-            <version>2.1.1</version>
-        </dependency>
+        <!--        <dependency>
+                    <groupId>com.zoe</groupId>
+                    <artifactId>spark-examples_2.11</artifactId>
+                    <version>2.1.1</version>
+                </dependency>-->
         <!--scala依赖包-->
         <dependency>
             <groupId>org.scala-lang</groupId>
@@ -78,6 +48,90 @@
             <artifactId>spark-streaming_2.11</artifactId>
         </dependency>
 
+        <!--spark-mllib-->
+        <dependency>
+            <groupId>com.zoe</groupId>
+            <artifactId>scopt_2.11</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalanlp</groupId>
+            <artifactId>breeze_2.11</artifactId>
+            <version>0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.scalanlp</groupId>
+            <artifactId>breeze-macros_2.11</artifactId>
+            <version>0.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-graphx_2.11</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.11</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+<!--        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib-local_2.11</artifactId>
+            <version>2.1.1</version>
+        </dependency>-->
+        <dependency>
+            <groupId>org.apache.spark</groupId>
+            <artifactId>spark-mllib_2.11</artifactId>
+            <version>2.1.1</version>
+        </dependency>
+        <!--hive-->
+        <!--        <dependency>
+                    <groupId>org.apache.hive</groupId>
+                    <artifactId>hive-beeline</artifactId>
+                    <version>1.2.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.hive</groupId>
+                    <artifactId>hive-cli</artifactId>
+                    <version>1.2.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.hive</groupId>
+                    <artifactId>hive-exec</artifactId>
+                    <version>1.2.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.hive</groupId>
+                    <artifactId>hive-jdbc</artifactId>
+                    <version>1.2.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.hive</groupId>
+                    <artifactId>hive-metastore</artifactId>
+                    <version>1.2.1</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.calcite</groupId>
+                    <artifactId>calcite-avatica</artifactId>
+                    <version>1.2.0-incubating</version>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.calcite</groupId>
+                    <artifactId>calcite-core</artifactId>
+                    <version>1.2.0-incubating</version>
+                    <exclusions>
+                        <exclusion>
+                            <groupId>org.pentaho</groupId>
+                            <artifactId>pentaho-aggdesigner-algorithm</artifactId>
+                        </exclusion>
+                    </exclusions>
+                </dependency>
+                <dependency>
+                    <groupId>org.apache.calcite</groupId>
+                    <artifactId>calcite-linq4j</artifactId>
+                    <version>1.2.0-incubating</version>
+                </dependency>-->
+        <!--#hive-->
     </dependencies>
 
 </project>

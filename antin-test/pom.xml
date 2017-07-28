@@ -3,7 +3,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>antin-spark</artifactId>
+        <artifactId>antin-spark-parent</artifactId>
         <groupId>com.antin</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
@@ -109,7 +109,94 @@
             <artifactId>dl4j-spark_2.11</artifactId>
             <version>0.8.0_spark_2</version>
         </dependency>
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>deeplearning4j-nlp</artifactId>
+            <version>0.8.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.deeplearning4j</groupId>
+            <artifactId>dl4j-spark-nlp_2.11</artifactId>
+            <version>0.8.0_spark_2</version>
+        </dependency>
         <!--#深度学习包#-->
+        <!--IK分词器-->
+        <dependency>
+            <groupId>com.zoe</groupId>
+            <artifactId>IKAnalyzer2012_u6</artifactId>
+            <version>20170517</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.lucene</groupId>
+            <artifactId>lucene-core</artifactId>
+            <version>3.6.0</version>
+        </dependency>
+        <!--#IK分词器-->
+        <!--elasticsearch-hadoop-->
+        <!--        <dependency>
+                    <groupId>org.elasticsearch</groupId>
+                    <artifactId>elasticsearch-hadoop</artifactId>
+                    <version>5.4.3</version>
+                </dependency>-->
+        <dependency>
+            <groupId>org.elasticsearch</groupId>
+            <artifactId>elasticsearch-hadoop</artifactId>
+            <version>5.4.3</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-core_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-sql_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.storm</groupId>
+                    <artifactId>storm-core</artifactId>
+                </exclusion>
+                <!-- <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-streaming-kafka_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-mllib_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-mllib-local_2.11</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-graphx_2.11</artifactId>
+                </exclusion>-->
+                <exclusion>
+                    <groupId>org.apache.spark</groupId>
+                    <artifactId>spark-streaming_2.10</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>cascading</groupId>
+                    <artifactId>cascading-hadoop</artifactId>
+                </exclusion>
+                <!--         <exclusion>
+                             <groupId>org.apache.pig</groupId>
+                             <artifactId>pig</artifactId>
+                         </exclusion>-->
+                <exclusion>
+                    <groupId>cascading</groupId>
+                    <artifactId>cascading-local</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.hive</groupId>
+                    <artifactId>hive-service</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.apache.pig</groupId>
+                    <artifactId>pig</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>
