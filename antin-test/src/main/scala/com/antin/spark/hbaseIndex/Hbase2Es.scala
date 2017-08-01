@@ -14,6 +14,7 @@ import org.elasticsearch.spark.sql._
 
 /**
   * Created by Administrator on 2017/7/26.
+  * /usr/hdp/2.6.1.0-129/spark2/bin/spark-submit --class com.antin.spark.hbaseIndex.Hbase2Es --master yarn --deploy-mode client /zoesoft/zoeJobJar/antin-test.jar
   */
 object Hbase2Es {
 
@@ -33,17 +34,80 @@ object Hbase2Es {
       .set("es.nodes", "zoe-007,zoe-008,zoe-009,zoe-010")
       .set("es.port", "9200")
       .set("es.index.auto.create", "true")
-      .setMaster("local")
+      .set("es.mapping.id", "rowKey")
+      //.setMaster("local[10]")
       .setAppName("demo4")
 
     val sc = new SparkContext(conf)
     //创建sqlContext
     // val sqlContext = new SQLContext(sc)
 
-    queryNameFromHbaseColumn2(sc, "hpor:sehr_xman")
-
-
+    queryNameFromHbaseColumn3(sc, "hpor:sehr_xman")
   }
+
+  //从hbase中取数据
+  def queryNameFromHbaseColumn3(sc: SparkContext, tableName: String): Unit = {
+    val hConf = HBaseConfiguration.create()
+    hConf.set(TableInputFormat.INPUT_TABLE, tableName)
+
+    val scan = new Scan()
+
+    scan.addFamily(Bytes.toBytes("diagnose"))
+    scan.addColumn(Bytes.toBytes("attribute"), Bytes.toBytes("NAME"))
+    scan.addColumn(Bytes.toBytes("attribute"), Bytes.toBytes("SEX"))
+    scan.addColumn(Bytes.toBytes("attribute"), Bytes.toBytes("BIRTHDAY"))
+    scan.addColumn(Bytes.toBytes("attribute"), Bytes.toBytes("NATIVE"))
+    scan.addColumn(Bytes.toBytes("attribute"), Bytes.toBytes("ADDRESS"))
+    scan.addColumn(Bytes.toBytes("attribute"), Bytes.toBytes("WORK"))
+
+
+    val proto = ProtobufUtil.toScan(scan)
+    val ScanToString = Base64.encodeBytes(proto.toByteArray())
+    hConf.set(TableInputFormat.SCAN, ScanToString)
+
+    val rs = sc.newAPIHadoopRDD(hConf, classOf[TableInputFormat], classOf[ImmutableBytesWritable], classOf[Result])
+
+    val resultRDD = rs.map(x => x._2)
+
+    val people = resultRDD.map(x => {
+
+      var diagnoseMap = Map[String, String]()
+      var attributeMap = Map[String, String]()
+
+      val arr = x.rawCells()
+      arr.foreach(cell => {
+        var qualifier = Bytes.toString(CellUtil.cloneQualifier(cell))
+        if (qualifier != null && !"".equals(qualifier.trim)) {
+          if ("diagnose" == Bytes.toString(CellUtil.cloneFamily(cell))) {
+            qualifier = qualifier.replaceAll("\\.", "-")
+            diagnoseMap += (qualifier.trim -> Bytes.toString(CellUtil.cloneValue(cell)))
+          } else {
+            attributeMap += (qualifier.trim -> Bytes.toString(CellUtil.cloneValue(cell)))
+          }
+        }
+      })
+      (Bytes.toString(x.getRow), (attributeMap, diagnoseMap))
+    })
+
+    val peoples = people.reduceByKey((a, b) => {
+      (a._1 ++ b._1, a._2 ++ b._2)
+    }).map(x => {
+      var m = Map[String, Any]("rowKey" -> x._1)
+      m += ("attribute" -> x._2._1)
+      m += ("diagnose" -> x._2._2)
+      m
+    })
+    //import scala.collection.mutable.Map[String,String]
+    //    val peoples = people.reduceByKey(_ ++ _).map(x => {
+    //      var m = Map[String, Any]("rowKey" -> x._1)
+    //      m += ("diagnose" -> x._2)
+    //      (x._1, m)
+    //    }).map(_._2)
+
+    //println("===========================================>" + people.toDebugString)
+    peoples.saveToEs("hpor:name_xmanid_index/person")
+  }
+
 
   //从hbase中取数据
   def queryNameFromHbaseColumn2(sc: SparkContext, tableName: String): Unit = {
@@ -67,8 +131,6 @@ object Hbase2Es {
     val rs = sc.newAPIHadoopRDD(hConf, classOf[TableInputFormat], classOf[ImmutableBytesWritable], classOf[Result])
 
     val resultRDD = rs.map(x => x._2)
-
-
 
     val people = resultRDD.map(x => {
 

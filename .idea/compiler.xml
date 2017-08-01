@@ -38,11 +38,35 @@
         <processorPath useClasspath="true" />
         <module name="antin-example" />
       </profile>
+      <profile default="false" name="Annotation profile for antin-ml" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="antin-ml" />
+      </profile>
+      <profile default="false" name="Annotation profile for antin-dl" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="antin-dl" />
+      </profile>
+      <profile default="false" name="Annotation profile for antin-stream" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="antin-stream" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="antin-demo" target="1.8" />
+      <module name="antin-dl" target="1.8" />
       <module name="antin-example" target="1.8" />
+      <module name="antin-ml" target="1.8" />
       <module name="antin-spark" target="1.8" />
+      <module name="antin-stream" target="1.8" />
       <module name="antin-test" target="1.8" />
     </bytecodeTargetLevel>
   </component>

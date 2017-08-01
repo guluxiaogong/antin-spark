@@ -1,38 +1,58 @@
 package com.antin.spark.counter
 
+import java.net.URI
+
+import org.apache.hadoop.conf.Configuration
+import org.apache.hadoop.fs.{FileSystem, Path}
 import org.apache.hadoop.hbase.HBaseConfiguration
 import org.apache.hadoop.hbase.client.Result
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable
 import org.apache.hadoop.hbase.mapreduce.TableInputFormat
+import org.apache.log4j.{Level, Logger}
 import org.apache.spark.{SparkConf, SparkContext}
 import org.slf4j.LoggerFactory
 
 /**
   * Created by Administrator on 2017/7/24.
-  * ./bin/spark-submit --class com.antin.spark.counter.RowCounter2 --master yarn --deploy-mode cluster /zoesoft/zoeJobJar/antin-test.jar "EHR_R"
+  * /usr/hdp/2.6.1.0-129/spark2/bin/spark-submit --class com.antin.spark.counter.RowCounter2 --master yarn --deploy-mode client /zoesoft/zoeJobJar/antin-test.jar "EHR_R"
+  *
   *
   * 本地运行没问题，集群上运行出错
+  *
+  * 采用mr统计
+  * $HBASE_HOME/bin/hbase   org.apache.hadoop.hbase.mapreduce.RowCounter ‘tablename’
   */
+//执行语句
+//>> /usr/hdp/2.6.1.0-129/spark2/bin/spark-submit --class com.antin.spark.counter.RowCounter2 --master yarn --deploy-mode client --driver-memory 4g --executor-memory 4g --executor-cores 10 /zoesoft/zoeJobJar/antin-test.jar "hbase表名"
 object RowCounter2 {
   private val log = LoggerFactory.getLogger(RowCounter2.getClass)
+  //屏蔽日志
+  Logger.getLogger("org.apache.spark").setLevel(Level.WARN)
+  Logger.getLogger("org.eclipse.jetty.server").setLevel(Level.OFF)
 
   def main(args: Array[String]) {
 
-    //    if (args.length < 0) {
-    //      log.warn("need hbase tableName!!!")
-    //      System.exit(-1)
-    //    }
-    val hConf = HBaseConfiguration.create()
+    //System.setProperty("HADOOP_USER_NAME", "hdfs")
+
     // val tableName = args(0) //"EHR_R" //"performance_test:sehr_xman"
-    val tableName = "hpor:sehr_xman"//"hpor:sehr_test"
+    var tableName = "hpor:sehr_xman" //"hpor:sehr_test"
+    if (args.length < 0) {
+      log.warn("need hbase tableName!!!")
+      System.exit(-1)
+    } else {
+      tableName = args(0)
+    }
+
+    val hConf = HBaseConfiguration.create()
+
     hConf.set(TableInputFormat.INPUT_TABLE, tableName)
     val conf = new SparkConf()
-      .setAppName("ReadFromHbase")
-      .setMaster("local")
+      .setAppName("RowCounter2")
+    // .setMaster("local")
     //.setMaster("yarn")
     val sc = new SparkContext(conf)
 
-    val accumulator = sc.longAccumulator("My Accumulator")
+    val accumulator = sc.longAccumulator("My Accumulator RowCounter2")
 
     val rs = sc.newAPIHadoopRDD(hConf, classOf[TableInputFormat], classOf[ImmutableBytesWritable], classOf[Result])
     rs.foreach(x => {
@@ -40,8 +60,14 @@ object RowCounter2 {
     })
     val total = accumulator.value
     println(s"总共 ===> $total 行")
+
+    val hdfsPath = "hdfs://zoe-cluster/demo-data/output/counter2"
+    val fileSystem = FileSystem.get(new URI(hdfsPath), new Configuration)
+
+    if (fileSystem.exists(new Path(hdfsPath)))
+      fileSystem.delete(new Path(hdfsPath), true)
     //val totalRdd = sc.parallelize(Array(total), 1)
-    //totalRdd.saveAsTextFile("hdfs://zoe-cluster/demo-data/output/counter3")
+    sc.makeRDD(Seq(total)).saveAsTextFile(hdfsPath)
 
   }
 }

@@ -21,6 +21,14 @@ import org.apache.spark.{SparkConf, SparkContext}
   * Created by Administrator on 2017/7/25.
   * hbase=>hbase
   * /usr/hdp/2.6.1.0-129/spark2/bin/spark-submit --class com.antin.spark.hbaseIndex.CreateHbaseIndex --master yarn --deploy-mode client /zoesoft/zoeJobJar/antin-test.jar
+  *
+  * /usr/hdp/2.6.1.0-129/spark2/bin/spark-submit --class com.antin.spark.hbaseIndex.CreateHbaseIndex \
+  * --master yarn \
+  * --deploy-mode client \
+  * --driver-memory 4g \
+  * --executor-memory 4g \
+  * --executor-cores 10 \
+  * /zoesoft/zoeJobJar/antin-test.jar
   */
 object CreateHbaseIndex {
 

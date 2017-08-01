@@ -12,6 +12,9 @@
         <module>antin-demo</module>
         <module>antin-test</module>
         <module>antin-example</module>
+        <module>antin-ml</module>
+        <module>antin-dl</module>
+        <module>antin-stream</module>
     </modules>
 
     <properties>
@@ -62,17 +65,22 @@
                 <artifactId>spark-streaming-kafka_2.11</artifactId>
                 <version>1.6.1</version>
             </dependency>
-
+            <!--            <dependency>
+                            <groupId>org.apache.spark</groupId>
+                            <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+                            <version>2.1.1</version>
+                        </dependency>
+                        -->
             <dependency>
                 <groupId>org.apache.spark</groupId>
                 <artifactId>spark-yarn_2.11</artifactId>
                 <version>2.1.1</version>
             </dependency>
-   <!--         <dependency>
-                <groupId>net.pishen</groupId>
-                <artifactId>spark-deployer-core_2.11</artifactId>
-                <version>2.8.1</version>
-            </dependency>-->
+            <!--         <dependency>
+                         <groupId>net.pishen</groupId>
+                         <artifactId>spark-deployer-core_2.11</artifactId>
+                         <version>2.8.1</version>
+                     </dependency>-->
             <!--mysql数据库驱动-->
             <dependency>
                 <groupId>mysql</groupId>
@@ -123,30 +131,30 @@
                     <target>1.8</target>
                 </configuration>
             </plugin>
-<!--            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
-                    <appendAssemblyId>false</appendAssemblyId>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    &lt;!&ndash;              <archive>
-                                      <manifest>
-                                          &lt;!&ndash;SEHR_EHR_CATALOG&ndash;&gt;
-                                          <mainClass>com.antin.mr.WcMain</mainClass>
-                                      </manifest>
-                                  </archive>&ndash;&gt;
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>assembly</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>-->
+            <!--            <plugin>
+                            <artifactId>maven-assembly-plugin</artifactId>
+                            <configuration>
+                                <appendAssemblyId>false</appendAssemblyId>
+                                <descriptorRefs>
+                                    <descriptorRef>jar-with-dependencies</descriptorRef>
+                                </descriptorRefs>
+                                &lt;!&ndash;              <archive>
+                                                  <manifest>
+                                                      &lt;!&ndash;SEHR_EHR_CATALOG&ndash;&gt;
+                                                      <mainClass>com.antin.mr.WcMain</mainClass>
+                                                  </manifest>
+                                              </archive>&ndash;&gt;
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <id>make-assembly</id>
+                                    <phase>package</phase>
+                                    <goals>
+                                        <goal>assembly</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>-->
         </plugins>
     </build>
 </project>

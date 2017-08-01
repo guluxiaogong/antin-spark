@@ -13,5 +13,17 @@
         <parameter value="F:\CommonDevelop\hadoop\project\github\antin-spark\antin-demo\target/.scala_dependencies" />
       </parameters>
     </profile>
+    <profile name="Maven 3" modules="antin-dl">
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="F:\CommonDevelop\hadoop\project\github\antin-spark\antin-dl\target/.scala_dependencies" />
+      </parameters>
+    </profile>
+    <profile name="Maven 4" modules="antin-stream">
+      <parameters>
+        <parameter value="-dependencyfile" />
+        <parameter value="F:\CommonDevelop\hadoop\project\github\antin-spark\antin-stream\target/.scala_dependencies" />
+      </parameters>
+    </profile>
   </component>
 </project>
