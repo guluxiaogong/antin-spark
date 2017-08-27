@@ -45,7 +45,7 @@ object WordCount {
       // 产生一个RDD ：MapPartitinsRDD
       .flatMap(_.split(" "))
       //产生一个RDD MapPartitionsRDD
-      .map((_, 1))
+      .map((_, 1)).sortBy(_._2)
       //产生一个RDD ShuffledRDD
       .reduceByKey(_ + _)
       //产生一个RDD: mapPartitions

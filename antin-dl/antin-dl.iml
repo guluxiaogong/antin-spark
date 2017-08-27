@@ -277,5 +277,6 @@
     <orderEntry type="library" name="Maven: org.nd4j:nd4j-jackson:0.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.nd4j:nd4j-base64:0.8.0" level="project" />
     <orderEntry type="library" name="Maven: org.deeplearning4j:dl4j-spark-nlp_2.11:0.8.0_spark_2" level="project" />
+    <orderEntry type="library" name="Maven: com.huaban:jieba-analysis:1.0.2" level="project" />
   </component>
 </module>
